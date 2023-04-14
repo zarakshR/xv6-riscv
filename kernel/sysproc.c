@@ -90,8 +90,17 @@ sys_uptime(void)
   return xticks;
 }
 
-// starting printing out each syscall made
+// set tracemask to (int) a1
 uint64
 sys_trace(void) {
-  panic("sys_trace not implemented yet\n");
+
+  struct proc* p = myproc();
+
+  if(p){
+    argint(0, &(p->tracemask));
+    return 0;
+  } else {
+    return -1;
+  }
+
 }
