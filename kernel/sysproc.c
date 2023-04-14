@@ -89,3 +89,9 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+// starting printing out each syscall made
+uint64
+sys_trace(void) {
+  panic("sys_trace not implemented yet\n");
+}
