@@ -24,3 +24,7 @@ ph
 barrier
 /lab-*.json
 .DS_Store
+.vscode/
+Cox, Kaashoek & Morris - xv6.pdf
+Kernighan & Ritchie - The C Programming Language (2nd Edition).pdf
+RISCV Assembly Manual.pdf
