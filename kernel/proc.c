@@ -140,6 +140,9 @@ found:
     return 0;
   }
 
+  // An empty tracemask
+  p->tracemask = 0;
+
   // Set up new context to start executing at forkret,
   // which returns to user space.
   memset(&p->context, 0, sizeof(p->context));
@@ -294,6 +297,10 @@ fork(void)
     release(&np->lock);
     return -1;
   }
+
+  // Copy tracemask
+  np->tracemask = p->tracemask;
+
   np->sz = p->sz;
 
   // copy saved user registers.
@@ -680,4 +687,17 @@ procdump(void)
     printf("%d %s %s", p->pid, state, p->name);
     printf("\n");
   }
+}
+
+uint8 countproc(void) {
+
+  uint8 count = 0;
+
+  for (uint8 i = 0; i < NPROC; i++) {
+    if (proc[i].state != UNUSED) {
+      count++;
+    }
+  }
+
+  return count;
 }
