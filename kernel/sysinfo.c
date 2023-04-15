@@ -10,7 +10,7 @@ void sys_sysinfo(void) {
 
     struct sysinfo sinfo = {
         .freemem = countfreepages() * PGSIZE,
-        .nproc = 69,
+        .nproc = countproc(),
     };
 
     uint64 ptr;

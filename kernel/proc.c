@@ -688,3 +688,16 @@ procdump(void)
     printf("\n");
   }
 }
+
+uint8 countproc(void) {
+
+  uint8 count = 0;
+
+  for (uint8 i = 0; i < NPROC; i++) {
+    if (proc[i].state != UNUSED) {
+      count++;
+    }
+  }
+
+  return count;
+}
