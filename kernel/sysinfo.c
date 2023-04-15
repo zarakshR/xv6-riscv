@@ -9,7 +9,7 @@
 void sys_sysinfo(void) {
 
     struct sysinfo sinfo = {
-        .freemem = 420,
+        .freemem = countfreepages() * PGSIZE,
         .nproc = 69,
     };
 
